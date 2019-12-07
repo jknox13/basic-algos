@@ -4,6 +4,8 @@ from .exceptions import NoSuchElementException
 
 
 class Node:
+    __slots__ = ()
+
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -13,6 +15,7 @@ class Node:
 
 class LinkedList:
     """Vanilla Linked List"""
+    __slots__ = ()
 
     @classmethod
     def from_sequence(cls, obj: Sequence[Any]):
