@@ -36,7 +36,31 @@ def insertion_sort(arr, reverse=False):
 
 
 def merge_sort(arr):
-    pass
+    def merge(L, R):
+        n, m = len(L), len(R)
+        while True:
+            if L[n - 1] > R[m - 1]:
+                n -= 1
+                arr[n + m] = L[n]
+                if n == 0:
+                    arr[:m] = R[:m]
+                    return
+            else:
+                m -= 1
+                arr[n + m] = R[m]
+                if m == 0:
+                    arr[:n] = L[:n]
+                    return
+
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        # these are copies
+        L = arr[:mid]
+        R = arr[mid:]
+
+        merge_sort(L)
+        merge_sort(R)
+        merge(L, R)
 
 
 def quick_sort(arr):
